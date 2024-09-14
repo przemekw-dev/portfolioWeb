@@ -9,13 +9,13 @@ interface PageTransitionProps {
   header: React.ReactNode; // Accepts header as a prop
 }
 
-const PageTransition = ({ children, header }: PageTransitionProps) => {
+const PageTransition = ({ children }: PageTransitionProps) => {
   const pathname = usePathname();
 
   return (
     <div className="relative">
       {/* Header remains fixed */}
-      <header>{header}</header>
+      {/* <header>{header}</header> */}
 
       {/* Animated content */}
       <AnimatePresence
