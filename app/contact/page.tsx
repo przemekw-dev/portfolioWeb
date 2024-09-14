@@ -17,11 +17,11 @@ import { FaPhoneAlt, FaEnvelope, FaMapMarkedAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const info = [
-  {
-    icon: <FaPhoneAlt />,
-    title: "Phone",
-    description: "+1 (123) 456-7890",
-  },
+  // {
+  //   icon: <FaPhoneAlt />,
+  //   title: "Phone",
+  //   description: "+1 (123) 456-7890",
+  // },
   {
     icon: <FaEnvelope />,
     title: "Email",
@@ -53,8 +53,9 @@ const page = () => {
             >
               <h3 className="text-4xl text-accent">Let's connect!</h3>
               <p className="text-white/60">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatum veniam doloremque beatae deleniti adipisci assumenda?
+                I'm open to employment opportunities, collaborations, and new
+                projects. Feel free to reach out! I'll get back to you as soon
+                as possible. It's best to contact me via LinkedIn or email.
               </p>
               {/* input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

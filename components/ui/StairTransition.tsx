@@ -5,7 +5,13 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import Stairs from "./Stairs";
 
-const StairTransition = ({ children }) => {
+import { ReactNode } from "react";
+
+interface StairTransitionProps {
+  children: ReactNode;
+}
+
+const StairTransition: React.FC<StairTransitionProps> = ({ children }) => {
   const pathName = usePathname();
   const [isAnimationComplete, setIsAnimationComplete] = useState(false);
 
