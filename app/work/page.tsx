@@ -18,15 +18,15 @@ import Image from "next/image";
 const projects = [
   {
     num: "01",
-    category: "Full Stack Website",
+    category: "Company Website",
     title: "Company Website",
     description:
       "A full stack company website with a landing page, about page, and contact form.",
     stack: [
       { name: "Next.js" },
       { name: "TypeScript" },
+      { name: "TailwindCSS" },
       { name: "HTML 5" },
-      { name: "CSS 3" },
     ],
     image: "/assets/bluwbee-web.png",
     live: "https://bluwbee.com",
@@ -34,7 +34,7 @@ const projects = [
   },
   {
     num: "02",
-    category: "Full Stack Mobile App",
+    category: "Exercise Mobile App",
     title: "Exercise App",
     description:
       "A full-stack exercise app where users can track their workouts and progress.",
