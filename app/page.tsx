@@ -7,6 +7,7 @@ import Socials from "@/components/ui/Socials";
 import Photo from "@/components/ui/Photo";
 import Stats from "@/components/ui/Stats";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Home = () => {
   return (
@@ -38,13 +39,14 @@ const Home = () => {
 
             {/*  btn and socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
-              <Button
-                variant="outline"
-                size="lg"
-                className="uppercase flex items-center gap-2"
+              <Link
+                href="/resume"
+                // variant="outline"
+                // size="lg"
+                className="uppercase flex items-center border-2 p-1 px-5 rounded-full border-accent text-accent hover:bg-accent hover:text-primary hover:transation-all duration-500"
               >
                 <span>View my Resume</span>
-              </Button>
+              </Link>
               <div className="mb-8 xl:mb-0">
                 <Socials
                   containerStyles="flex  gap-6"
