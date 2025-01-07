@@ -41,8 +41,6 @@ const Home = () => {
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <Link
                 href="/resume"
-                // variant="outline"
-                // size="lg"
                 className="uppercase flex items-center border-2 p-1 px-5 rounded-full border-accent text-accent hover:bg-accent hover:text-primary hover:transation-all duration-500"
               >
                 <span>View my Resume</span>

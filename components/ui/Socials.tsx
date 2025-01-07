@@ -6,11 +6,11 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 const socials = [
   {
     icon: <FaGithub />,
-    path: "https://github.com/przemekw-dev",
+    path: "aHR0cHM6Ly9naXRodWIuY29tL3ByemVtZWt3LWRldg==",
   },
   {
     icon: <FaLinkedin />,
-    path: "https://www.linkedin.com/in/przemwaliszka/",
+    path: "aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL3ByemVtd2FsaXN6a2Ev",
   },
 ];
 
@@ -28,7 +28,7 @@ const Socials = ({
           <Link
             legacyBehavior
             key={index}
-            href={social.path}
+            href={atob(social.path)}
             className={iconStyles}
           >
             <a href="noreferrer" target="_blank" className={iconStyles}>

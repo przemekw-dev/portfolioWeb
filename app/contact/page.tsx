@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -21,6 +21,7 @@ import {
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import RevealEmail from "@/components/RevealEmail";
 
 const info = [
   // {
@@ -31,13 +32,13 @@ const info = [
   {
     icon: <FaEnvelope />,
     title: "Email",
-    description: "przemwaliszka@gmail.com",
+    description: "cHJ6ZW13YWxpc3prYUBnbWFpbC5jb20=",
   },
   {
     icon: <FaLinkedin />,
     title: "LinkedIn",
     description: "Click to visit my LinkedIn",
-    link: "https://www.linkedin.com/in/przemwaliszka/",
+    link: "aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL3ByemVtd2FsaXN6a2Ev",
   },
   {
     icon: <FaMapMarkedAlt />,
@@ -47,8 +48,6 @@ const info = [
 ];
 
 const page = () => {
-  const [isEmailRevealed, setIsEmailRevealed] = useState(false);
-
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -58,9 +57,9 @@ const page = () => {
       }}
     >
       <div className="container mx-auto">
-        <div className="flex flex-col xl:flex-row gap-[30px]">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-[30px]">
           {/* form */}
-          <div className="xl:w-[54%] order-2 xl:order-none">
+          <div className="order-2 xl:order-none">
             <h3 className="text-4xl text-accent pb-4">Let's connect!</h3>
             <p className="text-white/60">
               I'm open to employment opportunities, collaborations, and new
@@ -107,7 +106,7 @@ const page = () => {
           </div>
 
           {/* info */}
-          <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0">
+          <div className="flex-1 flex items-center order-1 xl:order-none mb-8 xl:mb-0">
             <ul className="flex flex-col gap-10">
               {info.map((item, index) => {
                 return (
@@ -121,30 +120,22 @@ const page = () => {
                         <h3 className="text-xl">{item.description}</h3>
                       ) : item.title === "LinkedIn" ? (
                         <Link
-                          href={item.link}
+                          href={item.link ? atob(item.link) : "#"}
                           target="_blank"
                           className="hover:text-accent transition-all duration-300"
                         >
                           <h3 className="text-xl">{item.description}</h3>
                         </Link>
                       ) : (
-                        <h3 className="text-xl">
-                          {isEmailRevealed ? (
-                            <a
-                              href={`mailto:${item.description}`}
-                              className="hover:text-accent transition-all duration-300"
-                            >
-                              {item.description}
-                            </a>
-                          ) : (
-                            <button
-                              onClick={() => setIsEmailRevealed(true)}
-                              className="hover:text-accent transition-all duration-300"
-                            >
-                              Click to reveal
-                            </button>
-                          )}
-                        </h3>
+                        <>
+                          <RevealEmail
+                            hiddenText={item.description}
+                            promptText="Click to send email"
+                          />
+                          <div style={{ display: "none" }}>
+                            <p>przemekOfficialEmailForBusiness@gmail.com</p>
+                          </div>
+                        </>
                       )}
                     </div>
                   </li>
