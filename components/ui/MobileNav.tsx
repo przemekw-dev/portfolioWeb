@@ -43,7 +43,7 @@ const MobileNav = () => {
         <SheetContent className="flex flex-col">
           {/* Logo */}
           <div className="mt-32 mb-40 text-center text-2xl">
-            <Link href="/">
+            <Link href="/" legacyBehavior>
               <h1 className="text-4xl font-semibold">
                 Przemyslaw<span className="text-accent">.</span>
               </h1>
@@ -58,7 +58,7 @@ const MobileNav = () => {
                   className={`${
                     link.path === pathName && "text-accent border-b-2"
                   } text-xl capitalize hover:text-accent transition-all`}
-                >
+                  legacyBehavior>
                   {link.name}
                 </Link>
               );

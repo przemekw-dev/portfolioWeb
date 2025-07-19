@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
+import { Funnel_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/ui/Header";
 import PageTransition from "@/components/ui/PageTransition";
 import StairTransition from "@/components/ui/StairTransition";
 
-const jetbrains = JetBrains_Mono({
+const funnel = Funnel_Display({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
-  variable: "--font-jetbrainsMono",
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-funnelDisplay",
 });
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={jetbrains.className}>
+      <body className={funnel.className}>
         <Header />
         <StairTransition>{children}</StairTransition>
         {/* <PageTransition>{children}</PageTransition> */}

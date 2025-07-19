@@ -127,7 +127,7 @@ const Work = () => {
               <div className="border border-white/20"></div>
               {/* action buttons */}
               <div className="flex items-center gap-4">
-                <Link href={project.live}>
+                <Link href={project.live} legacyBehavior>
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
                       <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
@@ -137,7 +137,7 @@ const Work = () => {
                     </Tooltip>
                   </TooltipProvider>
                 </Link>
-                <Link href={project.github}>
+                <Link href={project.github} legacyBehavior>
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
                       <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">

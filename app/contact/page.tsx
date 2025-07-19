@@ -123,7 +123,7 @@ const page = () => {
                           href={item.link ? atob(item.link) : "#"}
                           target="_blank"
                           className="hover:text-accent transition-all duration-300"
-                        >
+                          legacyBehavior>
                           <h3 className="text-xl">{item.description}</h3>
                         </Link>
                       ) : (

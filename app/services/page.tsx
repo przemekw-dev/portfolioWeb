@@ -63,7 +63,7 @@ const Services = () => {
                   <Link
                     href={services.href}
                     className="w-16 h-16 rounded-full bg-white group-hover:bg-accent transition-all duration-500 flex justify-center items-center group-hover:-rotate-45"
-                  >
+                    legacyBehavior>
                     <BsArrowDownRight className="text-primary text-3xl" />
                   </Link>
                 </div>

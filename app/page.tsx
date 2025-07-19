@@ -42,7 +42,7 @@ const Home = () => {
               <Link
                 href="/resume"
                 className="uppercase flex items-center border-2 p-1 px-5 rounded-full border-accent text-accent hover:bg-accent hover:text-primary hover:transation-all duration-500"
-              >
+                legacyBehavior>
                 <span>View my Resume</span>
               </Link>
               <div className="mb-8 xl:mb-0">
