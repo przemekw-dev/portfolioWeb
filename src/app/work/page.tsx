@@ -10,8 +10,8 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
-import WorkSliderBtns from "@/components/ui/WorkSliderBtns";
+} from "@components/ui/tooltip";
+import WorkSliderBtns from "@components/ui/WorkSliderBtns";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -85,7 +85,7 @@ const projects = [
 const Work = () => {
   const [project, setProject] = useState(projects[0]);
 
-  function handleSlideChange(swiper: any) {
+  function handleSlideChange(swiper: { activeIndex: number }) {
     const currentIndex = swiper.activeIndex;
     setProject(projects[currentIndex]);
   }

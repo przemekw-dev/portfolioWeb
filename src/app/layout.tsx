@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Funnel_Display } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import StairTransition from "../components/ui/StairTransition";
 import Header from "@components/ui/Header";
 
-const funnelDisplay = Funnel_Display({
+const funnelDisplay = Inter({
   variable: "--font-funnelDisplay",
   subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 // const geistMono = Geist_Mono({

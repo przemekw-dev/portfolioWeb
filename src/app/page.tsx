@@ -1,14 +1,14 @@
 "use client";
 
 import React from "react";
-import { FiDownload } from "react-icons/fi";
+// import { FiDownload } from "react-icons/fi";
 import { motion } from "framer-motion";
-import Link from "next/link";
+// import Link from "next/link";
 import HeroHeader from "@components/HeroHeader/HeroHeader";
 import Stats from "@components/ui/Stats";
 import Photo from "@components/ui/Photo";
-import Socials from "@components/ui/Socials";
-import { Button } from "@components/ui/button";
+// import Socials from "@components/ui/Socials";
+// import { Button } from "@components/ui/button";
 
 const Home = () => {
   return (

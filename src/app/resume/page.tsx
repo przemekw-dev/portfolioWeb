@@ -3,11 +3,11 @@
 import {
   FaHtml5,
   FaCss3,
-  FaJs,
+  // FaJs,
   FaJava,
   FaReact,
   FaNodeJs,
-  FaFigma,
+  // FaFigma,
   FaGithub,
 } from "react-icons/fa";
 
@@ -15,19 +15,19 @@ import {
   SiTailwindcss,
   SiNextdotjs,
   SiTypescript,
-  SiGit,
+  // SiGit,
 } from "react-icons/si";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { motion } from "framer-motion";
+// import { clsx } from "clsx";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@components/ui/tabs";
 import {
   Tooltip,
   TooltipContent,
-  TooltipTrigger,
   TooltipProvider,
-} from "@/components/ui/tooltip";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { motion } from "framer-motion";
-import { clsx } from "clsx";
+  TooltipTrigger,
+} from "@components/ui/tooltip";
+import { ScrollArea } from "@components/ui/scroll-area";
 
 const about = {
   title: "About Me",
@@ -246,7 +246,7 @@ const Resume = () => {
                   </p>
                 </div>
                 <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
-                  {skills.items.map((skill, index) => {
+                  {skills.items.map((skill) => {
                     return (
                       <li key="index">
                         <TooltipProvider delayDuration={100}>

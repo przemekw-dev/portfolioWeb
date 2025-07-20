@@ -1,27 +1,28 @@
 "use client";
 
 import React from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+
 import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
-  FaPhoneAlt,
+  // FaPhoneAlt,
   FaEnvelope,
   FaMapMarkedAlt,
   FaLinkedin,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import RevealEmail from "@/components/RevealEmail";
+import RevealEmail from "@components/RevealEmail";
+// import { Button } from "@components/ui/button";
+// import { Input } from "@components/ui/input";
+// import { Textarea } from "@components/ui/textarea";
+// import {
+//   Select,
+//   SelectContent,
+//   SelectGroup,
+//   SelectItem,
+//   SelectLabel,
+//   SelectTrigger,
+//   SelectValue,
+// } from "@components/ui/select";
 
 const info = [
   // {
@@ -60,20 +61,20 @@ const page = () => {
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-[30px]">
           {/* form */}
           <div className="order-2 xl:order-none">
-            <h3 className="text-4xl text-accent pb-4">Let's connect!</h3>
+            <h3 className="text-4xl text-accent pb-4">Let$#39;s connect!</h3>
             <p className="text-white/60">
-              I'm open to employment opportunities, collaborations, and new
-              projects. Feel free to reach out! I'll get back to you as soon as
-              possible. It's best to contact me via LinkedIn or email.
+              I$#39;m open to employment opportunities, collaborations, and new
+              projects. Feel free to reach out! I$#39;ll get back to you as soon
+              as possible. It$#39;s best to contact me via LinkedIn or email.
             </p>
 
             {/* <form
               action=""
               className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl"
             >
-              <h3 className="text-4xl text-accent">Let's connect!</h3>
+              <h3 className="text-4xl text-accent">Let$#39;s connect!</h3>
               <p className="text-white/60">
-                I'm open to employment opportunities, collaborations, and new
+                I$#39;m open to employment opportunities, collaborations, and new
                 projects. Feel free to reach out! I'll get back to you as soon
                 as possible. It's best to contact me via LinkedIn or email.
               </p>
