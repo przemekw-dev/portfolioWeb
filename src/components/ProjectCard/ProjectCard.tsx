@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import { LucideArrowRight } from "lucide-react";
 
 type ProjectCardProps = {
   title: string;
   description: string;
   content: {
-    image?: any;
+    image?: string;
     video?: string;
   };
   href: string;
@@ -36,7 +36,7 @@ export function ProjectCard({
           />
         ) : (
           <Image
-            src={content.image}
+            src={content.image || ""}
             alt={title}
             fill
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"

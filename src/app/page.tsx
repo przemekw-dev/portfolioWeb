@@ -1,26 +1,30 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useInView,
+  // useScroll, useTransform
+} from "framer-motion";
 import HeroHeader from "@components/HeroHeader/HeroHeader";
 import Stats from "@components/ui/Stats";
 import {
-  LucideArrowRight,
+  // LucideArrowRight,
   LucideCloud,
   LucideServer,
   LucideSmartphone,
 } from "lucide-react";
 import { projects, services } from "lib/constants";
-import { ProjectCard } from "@components/ProjectCard/ProjectCard";
-import Image from "next/image";
-import Link from "next/link";
+// import { ProjectCard } from "@components/ProjectCard/ProjectCard";
+// import Image from "next/image";
+// import Link from "next/link";
 import { ProjectSection } from "@components/ProjectSection/ProjectSection";
 
 const professionalServices = services;
 const professionalProjects = projects;
 
 const Home = () => {
-  const servicesRef = useRef<HTMLDivElement>(null);
+  // const servicesRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(projectsRef, { once: true, margin: "-100px" });
 

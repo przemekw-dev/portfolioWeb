@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { Button } from "./button";
-import MobileNav from "./MobileNav";
-import Nav from "./Nav";
+// import MobileNav from "./MobileNav";
+// import Nav from "./Nav";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -17,7 +17,7 @@ const Header = () => {
     return scrollY.onChange((latest) => {
       setScrolled(latest > 10);
     });
-  }, []);
+  }, [scrollY]);
 
   return (
     <motion.header
@@ -59,7 +59,7 @@ const Header = () => {
         </motion.div>
 
         {/* Desktop Navigation */}
-        <div className="hidden xl:flex items-center gap-8">
+        <div className="flex items-center gap-8">
           {/* <Nav /> */}
 
           <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.95 }}>
@@ -91,7 +91,7 @@ const Header = () => {
         </div>
 
         {/* Mobile Navigation */}
-        <div className="xl:hidden">{/* <MobileNav /> */}</div>
+        <div className="hidden">{/* <MobileNav /> */}</div>
       </div>
 
       {/* Subtle grid pattern */}

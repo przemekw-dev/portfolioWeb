@@ -1,6 +1,6 @@
 import { useScroll, useTransform, motion } from "framer-motion";
 import { LucideArrowRight } from "lucide-react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 
@@ -8,7 +8,16 @@ export const ProjectSection = ({
   project,
   index,
 }: {
-  project: any;
+  project: {
+    title: string;
+    description: string;
+    stack: string[];
+    content: {
+      image: StaticImageData | string;
+      video: string;
+    };
+    href: string;
+  };
   index: number;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
