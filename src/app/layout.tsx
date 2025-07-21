@@ -27,10 +27,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${funnelDisplay.variable} antialiased`}>
-        <Header />
+      <body className={`${funnelDisplay.variable} antialiased `}>
+        <main className="relative min-h-screen overflow-hidden bg-slate-50">
+          {/* Infinite vertical background lines from bottom-right */}
+          <div className="absolute inset-0 z-0 bg-[url('/assets/curve_long_background.svg')] bg-right  opacity-40 pointer-events-none" />
 
-        <StairTransition>{children}</StairTransition>
+          {/* White semi-transparent overlay */}
+          {/* <div className="absolute inset-0 bg-white/80 z-0 pointer-events-none" /> */}
+
+          {/* Foreground content */}
+          <div className="relative z-10">
+            <Header />
+            <StairTransition>{children}</StairTransition>
+          </div>
+        </main>
       </body>
     </html>
   );

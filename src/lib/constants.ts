@@ -1,3 +1,6 @@
+import AccessControlSystem from "../../public/assets/AccessControlSys.png";
+import AIAgent from "../../public/assets/AIAgentCalls.png";
+
 export const services = [
   {
     title: "Mobile App Development",
@@ -52,13 +55,43 @@ export const projects = [
       "UWB/BLE",
       "ECDSA Encryption",
     ],
-    imageUrl: "",
+    content: {
+      image: AccessControlSystem,
+      video: "",
+    },
+    href: "/projects/access-control-system",
+  },
+  {
+    title: "Real-Time Tracking Dashboard",
+    description:
+      "Streamlining internal operations, real-time dashboard for Tracking Devices management.",
+    stack: ["Next.js", "Node.js", "AWS", "PostgreSQL", "Kafka API"],
+    content: {
+      image: "",
+      video: "/assets/TrackerAdminDashboard.mp4",
+    },
+    href: "/projects/real-time-tracking-dashboard",
   },
   {
     title: "AI Agent",
     description:
       "Integrated Admin Dashboard, mobile app for access entry, nRF52840dk boards for access point, verification and encryption.",
     stack: ["Next.js", "Node.js", "OpenAI", "AWS Serverless", "WebSocket"],
-    imageUrl: "",
+    content: {
+      image: AIAgent,
+      video: "",
+    },
+    href: "/projects/ai-agent",
+  },
+  {
+    title: "Bluwbee Website",
+    description:
+      "Redesigned and built a company website, increasing user interaction.",
+    stack: ["Next.js", "AWS Serverless", "Shadcn"],
+    content: {
+      image: "",
+      video: "/assets/BBWebsite.webm",
+    },
+    href: "/projects/company-website",
   },
 ];

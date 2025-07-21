@@ -26,7 +26,8 @@
       "@context/*": ["context/*"],
       "@utils/*": ["utils/*"],
       "@icons/*": ["icons/*"],
-      "@graphql/*": ["graphql/*"]
+      "@graphql/*": ["graphql/*"],
+      "@public/*": ["../public/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
