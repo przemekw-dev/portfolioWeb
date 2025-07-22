@@ -62,11 +62,15 @@ const Header = () => {
         <div className="flex items-center gap-8">
           {/* <Nav /> */}
 
-          <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.95 }}>
-            <Link href="/contact">
-              <Button className="relative overflow-hidden group">
+          <motion.div
+            whileHover={{ y: -2, cursor: "pointer" }}
+            whileTap={{ scale: 0.95 }}
+            className="group"
+          >
+            <Link href="/contact" className="">
+              <Button className="relative overflow-hidden group group-hover:cursor-pointer bg-transparent border-1 border-surface">
                 <span className="relative z-10 flex items-center gap-2">
-                  <span>Contact</span>
+                  <span className="text-gray-50">Contact Me</span>
                   <svg
                     width="16"
                     height="16"
@@ -76,15 +80,13 @@ const Header = () => {
                   >
                     <path
                       d="M5 12H19M19 12L12 5M19 12L12 19"
-                      stroke="currentColor"
+                      stroke="#fff"
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     />
                   </svg>
                 </span>
-                <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-1" />
-                <span className="absolute inset-0 border border-blue-400/50 rounded-full group-hover:border-blue-400 transition-all duration-300" />
               </Button>
             </Link>
           </motion.div>

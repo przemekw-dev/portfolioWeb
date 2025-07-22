@@ -54,9 +54,8 @@ const HeroHeader = () => {
 
         {/* Description */}
         <p className="max-w-2xl mx-auto text-subtitle text-lg md:text-xl mb-10 leading-relaxed">
-          Delivering high-performance full-stack solutions with modern
-          architectures, from intuitive frontends to robust cloud
-          infrastructure.
+          I build full-stack applications across frontend, backend, and cloud
+          infrastructure in agile teams.
         </p>
 
         {/* CTA + Socials */}

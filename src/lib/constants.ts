@@ -1,7 +1,8 @@
+import { ProjectsType, ServiceTech } from "types/home";
 import AccessControlSystem from "../../public/assets/AccessControlSys.png";
 import AIAgent from "../../public/assets/AIAgentCalls.png";
 
-export const services = [
+export const services: ServiceTech[] = [
   {
     title: "Mobile App Development",
     description:
@@ -43,17 +44,42 @@ export const services = [
   },
 ];
 
-export const projects = [
+export const projects: ProjectsType[] = [
   {
     title: "Access Control System",
     description:
-      "Integrated Admin Dashboard, mobile app for access entry, nRF52840dk boards for access point, verification and encryption.",
+      "Cloud-based physical access management system. Integrated three components for pass management, retrieval and verification via UWB/BLE and ECDSA.",
     stack: [
       "Next.js",
       "React-Native",
       "AWS Services",
       "UWB/BLE",
       "ECDSA Encryption",
+    ],
+    features: [
+      {
+        icon: "FaAws",
+        tech: "Cloud Backend",
+        description:
+          "Centralised AWS-Based Backend for pass creation, updates and entry logs.",
+      },
+      {
+        icon: "TbBrandReactNative",
+        tech: "Mobile App",
+        description: "Mobile app for pass retrieval and physical entry",
+      },
+      {
+        icon: "RiNextjsFill",
+        tech: "Dashboard",
+        description:
+          "Admin dashboard for pass management, access logs and user management.",
+      },
+      // {
+      //   icon: "FiCpu",
+      //   tech: "Access Point",
+      //   description:
+      //     "Embedded board that verifies user's passes and performs close proximity checks.",
+      // },
     ],
     content: {
       image: AccessControlSystem,
@@ -64,8 +90,9 @@ export const projects = [
   {
     title: "Real-Time Tracking Dashboard",
     description:
-      "Streamlining internal operations, real-time dashboard for Tracking Devices management.",
-    stack: ["Next.js", "Node.js", "AWS", "PostgreSQL", "Kafka API"],
+      "Dashboard for managing GPS tracking devices in delivery logistics. Includes live map, device data, and Kafka event stream integration. Integrated with PostgreSQL backend.",
+
+    stack: ["Next.js", "Node.js", "AWS", "PostgreSQL", "Kafka"],
     content: {
       image: "",
       video: "/assets/TrackerAdminDashboard.mp4",
@@ -75,8 +102,16 @@ export const projects = [
   {
     title: "AI Agent",
     description:
-      "Integrated Admin Dashboard, mobile app for access entry, nRF52840dk boards for access point, verification and encryption.",
-    stack: ["Next.js", "Node.js", "OpenAI", "AWS Serverless", "WebSocket"],
+      "Voice and chat assistant for appointment booking. Uses OpenAI for responses, Twilio for phone calls, and serverless AWS backend with WebSocket support.",
+    stack: [
+      "Next.js",
+      "Node.js",
+      "OpenAI",
+      "Twilio",
+      "AWS Lambda",
+      "WebSocket",
+      "API Gateway",
+    ],
     content: {
       image: AIAgent,
       video: "",
@@ -85,9 +120,8 @@ export const projects = [
   },
   {
     title: "Bluwbee Website",
-    description:
-      "Redesigned and built a company website, increasing user interaction.",
-    stack: ["Next.js", "AWS Serverless", "Shadcn"],
+    description: "Company website built with Next.js and deployed on AWS.",
+    stack: ["Next.js", "AWS Services"],
     content: {
       image: "",
       video: "/assets/BBWebsite.webm",

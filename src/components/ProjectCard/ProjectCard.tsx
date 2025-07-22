@@ -51,13 +51,13 @@ export function ProjectCard({
         </h3>
         <p className="text-subtitle/80 mb-4 line-clamp-2">{description}</p>
 
-        <Link
+        {/* <Link
           href={href}
           className="inline-flex items-center text-sm font-medium text-accent-dark hover:text-accent transition-colors duration-200"
         >
           Find Out More
           <LucideArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-        </Link>
+        </Link> */}
       </div>
     </div>
   );
