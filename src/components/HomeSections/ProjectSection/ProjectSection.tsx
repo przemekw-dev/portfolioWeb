@@ -113,8 +113,7 @@ export const ProjectSection = ({
           </p>
 
           {project.features && (
-            <div className="space-y-3">
-              {" "}
+            <div className="flex flex-col ite">
               {/* Reduced spacing */}
               {project.features.map((feature, index) => (
                 <div
@@ -132,7 +131,7 @@ export const ProjectSection = ({
                       {/* Smaller text */}
                       {feature.tech}
                     </p>
-                    <p className="text-xs text-subtitle/90">
+                    <p className="text-xs xl:text-sm text-subtitle/90">
                       {" "}
                       {/* Smaller text */}
                       {feature.description}
@@ -143,13 +142,13 @@ export const ProjectSection = ({
             </div>
           )}
 
-          <div className="flex flex-wrap gap-1.5 mt-4">
+          <div className="flex flex-wrap gap-1.5 mt-4 ">
             {" "}
             {/* Tighter spacing */}
             {project.stack?.map((stack: string, i: number) => (
               <span
                 key={i}
-                className="text-[0.65rem] font-medium bg-accent/10 text-accent-dark px-2.5 py-0.5 rounded-full" // Smaller tags
+                className="text-xs font-medium bg-accent/10 text-accent-dark px-3 py-1.5 rounded-full" // Smaller tags
               >
                 {stack}
               </span>

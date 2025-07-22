@@ -6,7 +6,7 @@ import {
   useInView,
   // useScroll, useTransform
 } from "framer-motion";
-import HeroHeader from "@components/HeroHeader/HeroHeader";
+import HeroHeader from "@components/HomeSections/HeroHeader/HeroHeader";
 import Stats from "@components/ui/Stats";
 
 import { projects } from "lib/constants";
@@ -15,13 +15,18 @@ import { projects } from "lib/constants";
 // import Link from "next/link";
 import { ProjectSection } from "@components/HomeSections/ProjectSection/ProjectSection";
 import ServicesSection from "@components/HomeSections/ServicesSection/ServicesSection";
+import OtherTechnologies from "@components/HomeSections/OtherTechnologies/OtherTechnologies";
+import TechVideoBackground from "@components/VideoBackground/VideoBackground";
+import ContactSection from "@components/HomeSections/ContactSection/ContactSection";
 
 const professionalProjects = projects;
 
 const Home = () => {
   // const servicesRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
+  const otherRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(projectsRef, { once: true, margin: "-200px" });
+  const isInViewOther = useInView(otherRef, { once: true, margin: "-200px" });
 
   return (
     <article className="flex flex-col mx-auto h-full max-w-7xl xl:mt-12">
@@ -88,8 +93,39 @@ const Home = () => {
         </div>
       </motion.section>
 
+      {/* <motion.section
+        ref={projectsRef}
+        className="w-full h-full mt-24"
+        initial="hidden"
+        animate={isInViewOther ? "show" : "hidden"}
+      >
+        <div className="text-center mb-16 pt-16">
+          <span className="text-sm font-medium text-accent-dark uppercase tracking-wider">
+            Additional
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-text mt-4 mb-6">
+            Service Integrations
+          </h2>
+          <p className="text-lg text-subtitle/80 max-w-2xl mx-auto">
+            Integrations with services like Twilio, Stripe, OpenAI, and others.
+          </p>
+        </div>
+      </motion.section> */}
+
+      <motion.section className="w-full mt-12 xl:mt-36">
+        <OtherTechnologies />
+      </motion.section>
+
+      <motion.section className="flex flex-col  justify-center gap-8  mx-auto">
+        {/* <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent-dark to-accent text-center text-5xl  leading-loose tracking-tight font-semibold">
+          Want to hire me?
+        </span> */}
+
+        <ContactSection />
+      </motion.section>
+
       {/* Stats Section */}
-      <div className="mt-24">
+      <div className="mt-24 xl:mt-36">
         <Stats />
       </div>
     </article>

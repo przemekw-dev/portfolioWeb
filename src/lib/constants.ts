@@ -129,3 +129,40 @@ export const projects: ProjectsType[] = [
     href: "/projects/company-website",
   },
 ];
+
+export type OtherServicesProps = {};
+
+export const otherServices = [
+  {
+    title: "Twilio",
+    services: [
+      "Programmable Voice (inbound/outbound calls)",
+      "SMS and MMS messaging",
+      "Transactional and marketing emails (SendGrid)",
+    ],
+  },
+  {
+    title: "OpenAI",
+    services: [
+      "Text generation (prompt chaining, assistant logic)",
+      "Long-term memory storage (RAG, embeddings)",
+      "Streaming audio inputs (e.g. live transcription)",
+    ],
+  },
+  {
+    title: "Stripe",
+    services: [
+      "One-time payments",
+      "Recurring billing and subscriptions",
+      "Webhooks and payment event handling",
+    ],
+  },
+  {
+    title: "AWS Services",
+    services: [
+      "Lambda-based backend logic",
+      "DynamoDB for structured data",
+      "S3 for file uploads and asset storage",
+    ],
+  },
+];
