@@ -10,6 +10,10 @@ import {
 } from "react-icons/fi";
 import Image from "next/image";
 import Photo from "@components/ui/Photo";
+import Script from "next/script";
+import emailjs from "@emailjs/browser";
+
+const emjsKey = process.env.NEXT_PUBLIC_EMAILJS_KEY;
 
 const ContactSection = () => {
   const {
@@ -21,6 +25,16 @@ const ContactSection = () => {
 
   return (
     <section className="pt-20 px-6 bg-gradient-to-b from-surface/50 to-surface/80">
+      <Script
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+        type="text/javascript"
+        onLoad={() => {
+          const result = emailjs.init({
+            publicKey: emjsKey,
+          });
+          console.log("[ContactSection]EmailJS Loaded.");
+        }}
+      />
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
