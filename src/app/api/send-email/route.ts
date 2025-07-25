@@ -7,11 +7,11 @@ import { z } from "zod";
 import { rateLimit } from "lib/rateLimiter";
 
 const requiredVars = [
-  "EMAILJS_KEY",
-  "SERVICE_ID",
-  "TEMPLATE_ID",
-  "PUBLIC_KEY",
-  "PRIVATE_KEY",
+  "EMAILJS_EMAILJS_KEY",
+  "EMAILJS_SERVICE_ID",
+  "EMAILJS_TEMPLATE_ID",
+  "EMAILJS_PUBLIC_KEY",
+  "EMAILJS_PRIVATE_KEY",
 ];
 
 for (const endVar of requiredVars) {
@@ -20,9 +20,9 @@ for (const endVar of requiredVars) {
   }
 }
 
-const emjsKey = process.env.EMAILJS_KEY!;
-const srvKey = process.env.SERVICE_ID;
-const tmlKey = process.env.TEMPLATE_ID;
+const emjsKey = process.env.EMAILJS_EMAILJS_KEY!;
+const srvKey = process.env.EMAILJS_SERVICE_ID;
+const tmlKey = process.env.EMAILJS_TEMPLATE_ID;
 
 // Corrected environment variable check
 if (!emjsKey || !srvKey || !tmlKey) {
@@ -30,8 +30,8 @@ if (!emjsKey || !srvKey || !tmlKey) {
 }
 
 emailjs.init({
-  publicKey: process.env.PUBLIC_KEY!,
-  privateKey: process.env.PRIVATE_KEY!,
+  publicKey: process.env.EMAILJS_PUBLIC_KEY!,
+  privateKey: process.env.EMAILJS_PRIVATE_KEY!,
   limitRate: {
     throttle: 8000,
   },
@@ -68,8 +68,8 @@ async function sendEmail(email: EmailType): Promise<Response> {
     };
 
     const response = await emailjs.send(
-      process.env.SERVICE_ID!,
-      process.env.TEMPLATE_ID!,
+      process.env.EMAILJS_SERVICE_ID!,
+      process.env.EMAILJS_TEMPLATE_ID!,
       params,
       {
         limitRate: {
