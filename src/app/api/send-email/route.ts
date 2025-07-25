@@ -7,7 +7,7 @@ import { z } from "zod";
 import { rateLimit } from "lib/rateLimiter";
 
 const requiredVars = [
-  "EMAILJS_EMAILJS_KEY",
+  "EMAILJS_KEY",
   "EMAILJS_SERVICE_ID",
   "EMAILJS_TEMPLATE_ID",
   "EMAILJS_PUBLIC_KEY",
@@ -20,7 +20,7 @@ for (const endVar of requiredVars) {
   }
 }
 
-const emjsKey = process.env.EMAILJS_EMAILJS_KEY!;
+const emjsKey = process.env.EMAILJS_KEY!;
 const srvKey = process.env.EMAILJS_SERVICE_ID;
 const tmlKey = process.env.EMAILJS_TEMPLATE_ID;
 
