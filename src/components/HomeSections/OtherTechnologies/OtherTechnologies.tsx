@@ -3,15 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { otherServices } from "../../../lib/constants";
 import { FaMicrochip, FaServer, FaCode, FaDatabase } from "react-icons/fa";
-import emailjs, { send } from "@emailjs/browser";
-
-const sendEmail = (subject: string, name: string, message: string) => {
-  const params = {
-    subject: subject,
-    name: name,
-    message: message,
-  };
-};
+import { sendEmail } from "lib/email";
 
 const ServiceCard = ({
   service,
@@ -22,33 +14,7 @@ const ServiceCard = ({
   index: number;
   containerRef: React.RefObject<HTMLDivElement>;
 }) => {
-  useEffect(() => {
-    const sendEm = async () => {
-      try {
-        const result = await fetch("/api/send-email", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: "NameTest",
-            message: "MESSAGE_TEST",
-            subject: "YOUR_SUBJECT",
-          }),
-        });
-        console.log("[OtherSection] Result: ", JSON.stringify(result));
-      } catch (e) {
-        console.error("[Other] err: ", e);
-      }
-      // console.log("ResultSendEm: ", JSON.stringify(result));
-    };
-
-    setTimeout(() => {
-      console.log("[OtherSection]Timeout stopped, sending email frontend");
-      sendEm();
-    }, 1000);
-    // console.log("SendEm:", sendEm);
-  }, []);
+  useEffect(() => {}, []);
 
   const iconMap = {
     Frontend: <FaCode className="text-accent" />,

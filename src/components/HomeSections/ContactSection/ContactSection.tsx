@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { useForm } from "react-hook-form";
+import { FieldValues, useForm } from "react-hook-form";
 import {
   FiSend,
   FiUser,
@@ -8,20 +8,61 @@ import {
   FiMessageSquare,
   FiClock,
 } from "react-icons/fi";
+
 import Image from "next/image";
 import Photo from "@components/ui/Photo";
 import Script from "next/script";
 import emailjs from "@emailjs/browser";
+import { sendEmail } from "lib/email";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import Socials from "@components/ui/Socials";
+import { useEmailConfirmationAlert } from "hooks/useEmailConfirmationAlert";
+import { EmailConfirmationAlert } from "@components/EmailConfirmationModal";
+import { useState } from "react";
 
 const emjsKey = process.env.NEXT_PUBLIC_EMAILJS_KEY;
 
 const ContactSection = () => {
   const {
     register,
+    unregister,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data: any) => console.log(data);
+  const { showAlert, alertEmail, showConfirmation, hideConfirmation } =
+    useEmailConfirmationAlert();
+
+  function handleResetInputs() {
+    unregister(["name", "email", "message"]);
+    unregister("name");
+    unregister("email");
+    unregister("message");
+    reset();
+  }
+
+  async function submitContactMe(data: FieldValues) {
+    console.log("Submit: ", data, ":", JSON.stringify(data));
+    try {
+      if (!data.name || !data.email || !data.message) {
+        throw new Error("[submitContactMe] Missing data ");
+      }
+      const nm = data.name;
+      const eml = data.email;
+      const msg = data.message;
+
+      await sendEmail(nm, eml, msg).then((res) => {
+        console.log(`[SubmitContactMe] Result: ${JSON.stringify(res)}`);
+        if (res) {
+          const bool: string = String(res);
+          showConfirmation(bool);
+          handleResetInputs();
+        }
+      });
+    } catch (e) {
+      console.warn(`[ContactSection] Error submitting contact me. ${e}`);
+    }
+  }
 
   return (
     <section className="pt-20 px-6 bg-gradient-to-b from-surface/50 to-surface/80">
@@ -35,6 +76,12 @@ const ContactSection = () => {
           console.log("[ContactSection]EmailJS Loaded.");
         }}
       />
+
+      <EmailConfirmationAlert
+        show={showAlert}
+        onClose={hideConfirmation}
+        email={alertEmail}
+      />
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -44,10 +91,10 @@ const ContactSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold leading-snug bg-clip-text text-transparent bg-gradient-to-r from-accent-dark to-accent mb-4">
-            Let's Build Something Great
+            Get in touch now
           </h2>
           <p className="text-lg text-subtitle/80 max-w-2xl mx-auto">
-            Have a project in mind or want to discuss opportunities? I'd love to
+            Want to discuss opportunities or have a project in mind? I'd love to
             hear from you.
           </p>
         </motion.div>
@@ -60,7 +107,10 @@ const ContactSection = () => {
             viewport={{ once: true }}
             className="bg-surface rounded-2xl p-8 shadow-xl border border-border/20"
           >
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            <form
+              onSubmit={handleSubmit(async (data) => submitContactMe(data))}
+              className="space-y-6"
+            >
               <div className="space-y-1">
                 <label
                   htmlFor="name"
@@ -72,7 +122,7 @@ const ContactSection = () => {
                   id="name"
                   {...register("name", { required: true })}
                   className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
-                  placeholder="John Doe"
+                  placeholder="Carl J"
                 />
                 {errors.name && (
                   <p className="text-red-500 text-sm">Please enter your name</p>
@@ -94,7 +144,7 @@ const ContactSection = () => {
                     pattern: /^\S+@\S+$/i,
                   })}
                   className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
-                  placeholder="john@example.com"
+                  placeholder="debtan@example.com"
                 />
                 {errors.email && (
                   <p className="text-red-500 text-sm">
@@ -115,7 +165,7 @@ const ContactSection = () => {
                   {...register("message", { required: true })}
                   rows={5}
                   className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
-                  placeholder="Tell me about your project..."
+                  placeholder="Would you be interested in working on my team.... 👉👈"
                 />
                 {errors.message && (
                   <p className="text-red-500 text-sm">
@@ -143,49 +193,23 @@ const ContactSection = () => {
             className="relative h-full  rounded-2xl overflow-hidden"
           >
             {/* Photo with professional overlay */}
-            <div className="absolute inset-0 left-14">
-              <Photo />
-              {/* <Image
-                src="/your-photo.jpg" // Replace with your photo path
-                alt="Professional Portrait"
-                fill
-                className="object-cover"
-                priority
-              /> */}
-              {/* <div className="absolute inset-0 bg-gradient-to-t from-surface/90 via-surface/90 to-surface/90" /> */}
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_90%,var(--color-surface)_100%)]" />
-            </div>
+            <div className="relative  flex-col justify-center items-center  w-full flex-1">
+              <span className="relative z-10">
+                <Photo />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_90%,var(--color-surface)_100%)]" />
+              </span>
 
-            {/* Contact info overlay */}
-            <div className="relative z-10 h-full flex flex-col justify-end p-8">
-              <div className="bg-surface/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-border/20">
-                <h3 className="text-2xl font-bold text-text mb-4">
-                  Get In Touch
-                </h3>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-4">
-                    <div className="p-2 rounded-full bg-accent/10">
-                      <FiMail className="text-accent" size={20} />
-                    </div>
-                    <div>
-                      <p className="text-sm text-subtitle">Email</p>
-                      <p className="font-medium text-text">
-                        contact@yourdomain.com
-                      </p>
-                    </div>
-                  </div>
+              {/* Contact info overlay */}
+              <div className="flex flex-col justify-center items-start mt-6">
+                <div className="flex flex-row gap-6 items-center justify-between bg-surface/80  w-66 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-border/50">
+                  <h3 className="text-2xl font-bold text-text">Socials</h3>
 
-                  <div className="flex items-start gap-4">
-                    <div className="p-2 rounded-full bg-accent/10">
-                      <FiClock className="text-accent" size={20} />
-                    </div>
-                    <div>
-                      <p className="text-sm text-subtitle">Availability</p>
-                      <p className="font-medium text-text">
-                        Monday - Friday, 9AM - 5PM
-                      </p>
-                    </div>
-                  </div>
+                  {/* <div className="space-y-4 "> */}
+                  <Socials
+                    containerStyles="flex gap-4"
+                    iconStyles="w-10 h-10 border border-accent/20 rounded-full flex justify-center items-center text-accent text-base hover:bg-accent hover:text-white hover:border-accent transition-all duration-300 shadow-sm hover:shadow-accent/20"
+                  />
+                  {/* </div> */}
                 </div>
               </div>
             </div>

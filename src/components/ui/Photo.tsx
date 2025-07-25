@@ -7,7 +7,7 @@ import ProfilePic from "../../../public/assets/profile-pic.png";
 
 const Photo = () => {
   return (
-    <div className="w-full h-full relative">
+    <div className="w-full h-full ">
       {/* image */}
       <motion.div
         initial={{ opacity: 0 }}
