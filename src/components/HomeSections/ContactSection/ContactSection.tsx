@@ -21,12 +21,12 @@ import { useState } from "react";
 const ContactSection = () => {
   const {
     register,
-    unregister,
+    // unregister,
     reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { showAlert, alertEmail, showConfirmation, hideConfirmation } =
+  const { showAlert, showConfirmation, hideConfirmation } =
     useEmailConfirmationAlert();
 
   const [isSending, setIsSending] = useState(false);
@@ -71,7 +71,7 @@ const ContactSection = () => {
       <EmailConfirmationAlert
         show={showAlert}
         onClose={hideConfirmation}
-        email={alertEmail}
+        // email={alertEmail}
       />
       <div className="max-w-6xl mx-auto">
         <motion.div

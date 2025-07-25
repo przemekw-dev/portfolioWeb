@@ -4,15 +4,18 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect } from "react";
 import { otherServices } from "../../../lib/constants";
 import { FaMicrochip, FaServer, FaCode, FaDatabase } from "react-icons/fa";
+import { ServiceItem } from "../../../types/home";
 
-const ServiceCard = ({
+interface ServiceCardProps {
+  service: ServiceItem | string;
+  index: number;
+  containerRef: React.RefObject<HTMLDivElement | null>;
+}
+
+const ServiceCard: React.FC<ServiceCardProps> = ({
   service,
   index,
   containerRef,
-}: {
-  service: string[];
-  index: number;
-  containerRef: React.RefObject<HTMLDivElement | null>;
 }) => {
   useEffect(() => {}, []);
 

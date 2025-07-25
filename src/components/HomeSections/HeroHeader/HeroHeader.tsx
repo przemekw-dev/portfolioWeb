@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 import Socials from "../../ui/Socials";
 import { TypeAnimation } from "react-type-animation";

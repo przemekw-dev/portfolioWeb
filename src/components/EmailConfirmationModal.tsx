@@ -7,14 +7,14 @@ import { motion, AnimatePresence } from "framer-motion";
 type EmailConfirmationAlertProps = {
   show: boolean;
   onClose: () => void;
-  email?: string;
+  // email?: string;
   autoHideDuration?: number;
 };
 
 export function EmailConfirmationAlert({
   show,
   onClose,
-  email,
+  // email,
   autoHideDuration = 5000,
 }: EmailConfirmationAlertProps) {
   useEffect(() => {

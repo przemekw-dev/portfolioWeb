@@ -28,3 +28,8 @@ export type ServiceCardProps = {
   service: ServiceTech;
   index: number;
 };
+
+export type ServiceItem = {
+  title: string;
+  services: string[];
+};
