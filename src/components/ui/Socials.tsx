@@ -25,7 +25,13 @@ const Socials = ({
     <div className={containerStyles}>
       {socials.map((social, index) => {
         return (
-          <Link key={index} href={atob(social.path)} className={iconStyles}>
+          <Link
+            key={index}
+            href={atob(social.path)}
+            // rel="noopener noreferrer"
+            target="_blank"
+            className={iconStyles}
+          >
             {/* <a href="noreferrer" target="_blank" className={iconStyles}> */}
             {social.icon}
             {/* </a> */}

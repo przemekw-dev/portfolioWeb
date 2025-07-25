@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 // import { motion } from "framer-motion";
-import { LucideArrowRight } from "lucide-react";
+// import { LucideArrowRight } from "lucide-react";
 
 type ProjectCardProps = {
   title: string;
@@ -10,15 +10,15 @@ type ProjectCardProps = {
     image?: string;
     video?: string;
   };
-  href: string;
+  // href: string;
 };
 
 export function ProjectCard({
   title,
   description,
   content,
-  href,
-}: ProjectCardProps) {
+}: // href,
+ProjectCardProps) {
   const isVideo = !!content.video;
 
   return (
@@ -51,13 +51,13 @@ export function ProjectCard({
         </h3>
         <p className="text-subtitle/80 mb-4 line-clamp-2">{description}</p>
 
-        <Link
+        {/* <Link
           href={href}
           className="inline-flex items-center text-sm font-medium text-accent-dark hover:text-accent transition-colors duration-200"
         >
           Find Out More
           <LucideArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

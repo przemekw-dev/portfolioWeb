@@ -25,6 +25,8 @@
   --color-error: #ef4444; /* red-500 */
   --color-success: #10b981; /* green-500 */
   --color-warning: #f59e0b;
+
+  --text-tiny: 0.75rem;
 }
 
 body {

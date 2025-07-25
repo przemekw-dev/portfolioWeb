@@ -1,11 +1,18 @@
-import Link from "next/link";
 import React from "react";
-import Socials from "../ui/Socials";
+import Socials from "../../ui/Socials";
 import { TypeAnimation } from "react-type-animation";
+import { Button } from "@components/ui/button";
+// import TechVideoBackground from "@components/VideoBackground/VideoBackground";
 
-const HeroHeader = () => {
+const HeroHeader = ({
+  servicesRef,
+}: {
+  servicesRef: React.RefObject<HTMLDivElement | null>;
+}) => {
   return (
-    <section className="relative flex flex-col items-center justify-center w-full px-6 pt-32 pb-24 text-center">
+    <section className="relative flex flex-col items-center justify-center w-full px-6 pt-46 pb-24 text-center">
+      {/* <TechVideoBackground /> */}
+
       {/* Decorative elements (optional) */}
       <div className="absolute inset-0 overflow-hidden opacity-10">
         <div className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-accent-dark blur-3xl"></div>
@@ -54,20 +61,32 @@ const HeroHeader = () => {
 
         {/* Description */}
         <p className="max-w-2xl mx-auto text-subtitle text-lg md:text-xl mb-10 leading-relaxed">
-          Delivering high-performance full-stack solutions with modern
-          architectures, from intuitive frontends to robust cloud
-          infrastructure.
+          I build full-stack applications across frontend, backend, and cloud
+          infrastructure in agile teams.
         </p>
 
         {/* CTA + Socials */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-          <Link
-            href="/resume"
-            className="relative uppercase font-medium tracking-wide py-3 px-8 rounded-full bg-gradient-to-r from-accent-dark to-accent text-white hover:shadow-lg hover:shadow-accent/30 transition-all duration-300 overflow-hidden group"
+          <Button
+            onClick={() => {
+              // servicesRef?.current?.scrollIntoView({
+              //   behavior: "smooth",
+              //   block: "start",
+              //   inline: "end",
+              // });
+              const offset = -80;
+              const top = servicesRef.current?.getBoundingClientRect().top ?? 0;
+              const scrollTop = window.pageYOffset + top + offset;
+              window.scrollTo({
+                top: scrollTop,
+                behavior: "smooth",
+              });
+            }}
+            className="relative uppercase font-medium tracking-wide py-3 px-8 rounded-full bg-gradient-to-r from-accent-dark to-accent text-white hover:shadow-lg hover:shadow-accent/30 transition-all duration-300 overflow-hidden group hover:cursor-pointer "
           >
             <span className="relative z-10">Explore What I Do</span>
             <span className="absolute inset-0 bg-gradient-to-r from-accent to-accent-dark opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-          </Link>
+          </Button>
 
           <Socials
             containerStyles="flex gap-4"

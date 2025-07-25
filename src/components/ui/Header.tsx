@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
 import { Button } from "./button";
 // import MobileNav from "./MobileNav";
@@ -7,14 +8,18 @@ import { Button } from "./button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const Header = () => {
+const Header = ({
+  contactRef,
+}: {
+  contactRef: React.RefObject<HTMLDivElement | null>;
+}) => {
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
   const headerHeight = useTransform(scrollY, [0, 100], [96, 72]);
   const opacity = useTransform(scrollY, [0, 50], [1, 0.9]);
 
   useEffect(() => {
-    return scrollY.onChange((latest) => {
+    return scrollY.on("change", (latest) => {
       setScrolled(latest > 10);
     });
   }, [scrollY]);
@@ -62,31 +67,40 @@ const Header = () => {
         <div className="flex items-center gap-8">
           {/* <Nav /> */}
 
-          <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.95 }}>
-            <Link href="/contact">
-              <Button className="relative overflow-hidden group">
-                <span className="relative z-10 flex items-center gap-2">
-                  <span>Contact</span>
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    className="transition-transform group-hover:translate-x-1"
-                  >
-                    <path
-                      d="M5 12H19M19 12L12 5M19 12L12 19"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>
-                <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-1" />
-                <span className="absolute inset-0 border border-blue-400/50 rounded-full group-hover:border-blue-400 transition-all duration-300" />
-              </Button>
-            </Link>
+          <motion.div
+            whileHover={{ y: -2, cursor: "pointer" }}
+            whileTap={{ scale: 0.95 }}
+            className="group"
+          >
+            <Button
+              className="relative overflow-hidden group group-hover:cursor-pointer bg-transparent border-1 border-surface"
+              onClick={() => {
+                contactRef.current?.scrollIntoView({
+                  block: "start",
+                  behavior: "smooth",
+                  inline: "end",
+                });
+              }}
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                <span className="text-gray-50">Contact Me</span>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  className="transition-transform group-hover:translate-x-1"
+                >
+                  <path
+                    d="M5 12H19M19 12L12 5M19 12L12 19"
+                    stroke="#fff"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+            </Button>
           </motion.div>
         </div>
 
