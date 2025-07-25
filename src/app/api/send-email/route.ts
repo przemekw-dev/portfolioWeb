@@ -1,17 +1,10 @@
 "use server";
 
-import { safeParse } from "./../../../../node_modules/zod/src/v4/classic/parse";
-import {
-  string,
-  email,
-} from "./../../../../node_modules/zod/src/v4/core/regexes";
-
 import { EmailType } from "./../../../types/email";
 import { NextResponse } from "next/server";
 import emailjs from "@emailjs/nodejs";
 import { z } from "zod";
-import { da } from "zod/v4/locales";
-import { ratelimit } from "lib/rateLimiter";
+import { rateLimit } from "lib/rateLimiter";
 
 const requiredVars = [
   "EMAILJS_KEY",
@@ -119,16 +112,15 @@ export async function POST(req: Request) {
       }
     );
   }
-
-  const identifier = req.headers.get("x-forwarded-for") || "127.0.0.1";
-
-  const { success } = await ratelimit.limit(identifier);
-
-  if (!success) {
-    return NextResponse.json({ error: "Too Many Requests" }, { status: 429 });
-  }
-
   try {
+    const identifier = req.headers.get("x-forwarded-for") || "127.0.0.1";
+
+    const { success } = await rateLimit(identifier);
+
+    if (!success) {
+      return NextResponse.json({ error: "Too Many Requests" }, { status: 429 });
+    }
+
     const data: EmailType = await req.json();
     console.debug("[Dt] Data:", data);
 

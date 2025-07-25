@@ -17,7 +17,7 @@ const Photo = () => {
         }}
       >
         <div
-          className="w-[120px] h-[120px] xl:w-[260px] xl:h-[260px]  absolute
+          className="w-56 h-56 sm:w-[260px] sm:h-[260px]  absolute
       "
           style={{
             maskImage:
@@ -37,7 +37,7 @@ const Photo = () => {
 
       {/* circle */}
       <motion.svg
-        className="w-[120px] xl:w-[260px] h-[120px] xl:h-[260px]"
+        className="w-56 sm:w-[260px] h-56 sm:h-[260px]"
         fill="transparent"
         viewBox="0 0 506 506"
         xmlns="http://www.w3.org/2000/svg"

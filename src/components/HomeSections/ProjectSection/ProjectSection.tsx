@@ -7,7 +7,7 @@ import { TbBrandReactNative, TbCloudCode } from "react-icons/tb";
 import { ProjectsType } from "types/home";
 import { RiNextjsFill } from "react-icons/ri";
 import { FiCpu } from "react-icons/fi";
-import { FaAws } from "react-icons/fa";
+// import { FaAws } from "react-icons/fa";
 
 export const ProjectSection = ({
   project,

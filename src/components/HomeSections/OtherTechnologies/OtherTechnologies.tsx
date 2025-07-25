@@ -1,22 +1,22 @@
 "use client";
+import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { otherServices } from "../../../lib/constants";
 import { FaMicrochip, FaServer, FaCode, FaDatabase } from "react-icons/fa";
-import { sendEmail } from "lib/email";
 
 const ServiceCard = ({
   service,
   index,
   containerRef,
 }: {
-  service: any;
+  service: string[];
   index: number;
-  containerRef: React.RefObject<HTMLDivElement>;
+  containerRef: React.RefObject<HTMLDivElement | null>;
 }) => {
   useEffect(() => {}, []);
 
-  const iconMap = {
+  const iconMap: Record<string, React.ReactNode> = {
     Frontend: <FaCode className="text-accent" />,
     Backend: <FaServer className="text-accent" />,
     Database: <FaDatabase className="text-accent" />,

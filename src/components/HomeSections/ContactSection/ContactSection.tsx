@@ -6,21 +6,17 @@ import {
   FiUser,
   FiMail,
   FiMessageSquare,
-  FiClock,
+  FiLoader,
+  // FiClock,
 } from "react-icons/fi";
 
-import Image from "next/image";
 import Photo from "@components/ui/Photo";
-import Script from "next/script";
-import emailjs from "@emailjs/browser";
 import { sendEmail } from "lib/email";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+// import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Socials from "@components/ui/Socials";
 import { useEmailConfirmationAlert } from "hooks/useEmailConfirmationAlert";
 import { EmailConfirmationAlert } from "@components/EmailConfirmationModal";
 import { useState } from "react";
-
-const emjsKey = process.env.NEXT_PUBLIC_EMAILJS_KEY;
 
 const ContactSection = () => {
   const {
@@ -33,17 +29,21 @@ const ContactSection = () => {
   const { showAlert, alertEmail, showConfirmation, hideConfirmation } =
     useEmailConfirmationAlert();
 
+  const [isSending, setIsSending] = useState(false);
+
   function handleResetInputs() {
-    unregister(["name", "email", "message"]);
-    unregister("name");
-    unregister("email");
-    unregister("message");
-    reset();
+    reset({
+      name: "",
+      email: "",
+      message: "",
+    });
   }
 
   async function submitContactMe(data: FieldValues) {
+    if (isSending) return;
     console.log("Submit: ", data, ":", JSON.stringify(data));
     try {
+      setIsSending(true);
       if (!data.name || !data.email || !data.message) {
         throw new Error("[submitContactMe] Missing data ");
       }
@@ -61,22 +61,13 @@ const ContactSection = () => {
       });
     } catch (e) {
       console.warn(`[ContactSection] Error submitting contact me. ${e}`);
+    } finally {
+      setIsSending(false);
     }
   }
 
   return (
-    <section className="pt-20 px-6 bg-gradient-to-b from-surface/50 to-surface/80">
-      <Script
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-        type="text/javascript"
-        onLoad={() => {
-          const result = emailjs.init({
-            publicKey: emjsKey,
-          });
-          console.log("[ContactSection]EmailJS Loaded.");
-        }}
-      />
-
+    <section className="pt-20 px-6">
       <EmailConfirmationAlert
         show={showAlert}
         onClose={hideConfirmation}
@@ -94,8 +85,8 @@ const ContactSection = () => {
             Get in touch now
           </h2>
           <p className="text-lg text-subtitle/80 max-w-2xl mx-auto">
-            Want to discuss opportunities or have a project in mind? I'd love to
-            hear from you.
+            Want to discuss opportunities or have a project in mind? I$
+            {`&rsquo`}d love to hear from you.
           </p>
         </motion.div>
 
@@ -110,6 +101,7 @@ const ContactSection = () => {
             <form
               onSubmit={handleSubmit(async (data) => submitContactMe(data))}
               className="space-y-6"
+              aria-disabled={isSending}
             >
               <div className="space-y-1">
                 <label
@@ -122,7 +114,7 @@ const ContactSection = () => {
                   id="name"
                   {...register("name", { required: true })}
                   className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
-                  placeholder="Carl J"
+                  placeholder="Karl Johnsson"
                 />
                 {errors.name && (
                   <p className="text-red-500 text-sm">Please enter your name</p>
@@ -178,9 +170,31 @@ const ContactSection = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full bg-gradient-to-r from-accent-dark to-accent text-white font-medium py-3 px-6 rounded-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-accent/20 transition-all"
+                disabled={isSending}
+                className={`w-full bg-gradient-to-r from-accent-dark to-accent text-white font-medium py-3 px-6 rounded-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-accent/20 transition-all ${
+                  isSending ? "cursor-not-allowed opacity-90" : ""
+                }`}
               >
-                <FiSend /> Send Message
+                {isSending ? (
+                  <div className="flex items-center gap-2">
+                    <motion.span
+                      animate={{ rotate: 360 }}
+                      transition={{
+                        repeat: Infinity,
+                        duration: 1,
+                        ease: "linear",
+                      }}
+                    >
+                      <FiLoader className="h-5 w-5" />
+                    </motion.span>
+                    Sending...
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-2">
+                    <FiSend className="h-5 w-5" />
+                    Send Message
+                  </div>
+                )}
               </motion.button>
             </form>
           </motion.div>
@@ -193,14 +207,14 @@ const ContactSection = () => {
             className="relative h-full  rounded-2xl overflow-hidden"
           >
             {/* Photo with professional overlay */}
-            <div className="relative  flex-col justify-center items-center  w-full flex-1">
+            <div className="flex md:relative  flex-col justify-center items-center  w-full flex-1">
               <span className="relative z-10">
                 <Photo />
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_90%,var(--color-surface)_100%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_90%,var(--color-surface)_100%)] rounded-full" />
               </span>
 
               {/* Contact info overlay */}
-              <div className="flex flex-col justify-center items-start mt-6">
+              <div className="flex flex-col justify-center items-start my-6">
                 <div className="flex flex-row gap-6 items-center justify-between bg-surface/80  w-66 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-border/50">
                   <h3 className="text-2xl font-bold text-text">Socials</h3>
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { CheckCircle2, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -56,7 +56,7 @@ export function EmailConfirmationAlert({
                 <div className="mt-1 text-sm text-gray-500 dark:text-gray-400">
                   <p>
                     Thank you for your message!{" "}
-                    {email && `A confirmation has been sent to ${email}.`}
+                    {/* {email && `A confirmation has been sent to ${email}.`} */}
                   </p>
                 </div>
                 <div className="mt-3">

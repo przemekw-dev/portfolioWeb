@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 // import { motion } from "framer-motion";
-import { LucideArrowRight } from "lucide-react";
+// import { LucideArrowRight } from "lucide-react";
 
 type ProjectCardProps = {
   title: string;
@@ -10,15 +10,15 @@ type ProjectCardProps = {
     image?: string;
     video?: string;
   };
-  href: string;
+  // href: string;
 };
 
 export function ProjectCard({
   title,
   description,
   content,
-  href,
-}: ProjectCardProps) {
+}: // href,
+ProjectCardProps) {
   const isVideo = !!content.video;
 
   return (

@@ -130,7 +130,7 @@ export const projects: ProjectsType[] = [
   },
 ];
 
-export type OtherServicesProps = {};
+// export type OtherServicesProps = {};
 
 export const otherServices = [
   {
