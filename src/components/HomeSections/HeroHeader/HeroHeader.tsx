@@ -24,7 +24,7 @@ const HeroHeader = ({
         {/* Subtitle */}
         <span className="inline-block text-sm md:text-base font-medium text-accent-dark uppercase tracking-wider mb-4">
           <TypeAnimation
-            sequence={["", 2000, "Full-Stack Development Services", 2000]}
+            sequence={["", 1400, "Full-Stack Development Services", 2000]}
             wrapper="span"
             speed={65}
             style={{ display: "inline-block" }}
@@ -37,7 +37,7 @@ const HeroHeader = ({
         {/* Title */}
         <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight text-text mb-6 text-balance">
           <TypeAnimation
-            sequence={["", 1000, "Mobile & Web Systems", 2000]}
+            sequence={["", 600, "Mobile & Web Systems", 2000]}
             wrapper="span"
             speed={75}
             style={{ display: "inline-block" }}
@@ -48,7 +48,7 @@ const HeroHeader = ({
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-dark to-accent block mt-2">
             <TypeAnimation
-              sequence={["", 1100, "With Scalable Cloud Backends", 2000]}
+              sequence={["", 700, "With Scalable Cloud Backends", 2000]}
               wrapper="span"
               speed={75}
               style={{ display: "inline-block" }}
