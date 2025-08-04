@@ -101,7 +101,7 @@ const ContactSection = () => {
             <form
               onSubmit={handleSubmit(async (data) => submitContactMe(data))}
               className="space-y-6"
-              aria-disabled={isSending}
+              // aria-disabled={isSending}
             >
               <div className="space-y-1">
                 <label
