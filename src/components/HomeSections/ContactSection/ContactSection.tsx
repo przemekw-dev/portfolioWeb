@@ -136,7 +136,7 @@ const ContactSection = () => {
                     pattern: /^\S+@\S+$/i,
                   })}
                   className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
-                  placeholder="debtan@example.com"
+                  placeholder="example@debtan.com"
                 />
                 {errors.email && (
                   <p className="text-red-500 text-sm">
@@ -157,7 +157,7 @@ const ContactSection = () => {
                   {...register("message", { required: true })}
                   rows={5}
                   className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
-                  placeholder="Would you be interested in working on my team.... 👉👈"
+                  placeholder="Type your message here..."
                 />
                 {errors.message && (
                   <p className="text-red-500 text-sm">
