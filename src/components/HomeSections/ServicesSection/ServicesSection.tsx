@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
 import {
   // LucideArrowRight,
   LucideCloud,
@@ -11,11 +11,29 @@ import { services } from "lib/constants";
 const professionalServices = services;
 
 const ServicesSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
+    amount: 0.1, // Trigger when 10% of element is visible
+    once: false, // Allow re-triggering if scrolled away and back
+  });
+
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    }
+  }, [isInView, controls]);
+
   return (
-    <>
+    <div ref={ref}>
       {/* Section Header */}
+
+      {/* {visible && ( */}
       <motion.div
         className="max-w-4xl mx-auto text-center mb-16 relative"
+        initial="hidden"
+        animate={controls}
         variants={{
           hidden: { opacity: 0, y: 20 },
           visible: {
@@ -30,7 +48,7 @@ const ServicesSection = () => {
           initial={{ opacity: 0 }}
           animate={{
             opacity: 1,
-            transition: { delay: 0.4, duration: 0.6 },
+            transition: { delay: 2.4, duration: 0.6 },
           }}
         >
           What I Offer
@@ -42,7 +60,7 @@ const ServicesSection = () => {
           animate={{
             clipPath: "inset(0 0% 0 0)",
             transition: {
-              delay: 0.6,
+              delay: 2.6,
               duration: 1.2,
               ease: [0.16, 1, 0.3, 1],
             },
@@ -56,7 +74,7 @@ const ServicesSection = () => {
           initial={{ opacity: 0 }}
           animate={{
             opacity: 1,
-            transition: { delay: 0.8, duration: 0.6 },
+            transition: { delay: 2.8, duration: 0.6 },
           }}
         >
           Full-stack development from concept to deployment.
@@ -73,6 +91,7 @@ const ServicesSection = () => {
           }}
         />
       </motion.div>
+      {/* )} */}
 
       {/* Services Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
@@ -180,7 +199,7 @@ const ServicesSection = () => {
         transition={{ duration: 1.5, delay: 0.8 }}
         viewport={{ once: true }}
       />
-    </>
+    </div>
   );
 };
 

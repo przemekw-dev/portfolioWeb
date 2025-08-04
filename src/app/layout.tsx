@@ -36,7 +36,9 @@ export default function RootLayout({
 
           {/* Foreground content */}
           <div className="relative z-10">
-            <StairTransition>{children}</StairTransition>
+            {/* <StairTransition> */}
+            {children}
+            {/* </StairTransition> */}
           </div>
         </main>
       </body>
