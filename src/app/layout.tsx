@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import StairTransition from "../components/ui/StairTransition";
+// import StairTransition from "../components/ui/StairTransition";
 
 const funnelDisplay = Inter({
   variable: "--font-funnelDisplay",
