@@ -3,6 +3,7 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import {
   // LucideArrowRight,
   LucideCloud,
+  LucideMonitorCheck,
   LucideServer,
   LucideSmartphone,
 } from "lucide-react";
@@ -94,11 +95,11 @@ const ServicesSection = () => {
       {/* )} */}
 
       {/* Services Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+      <div className="grid grid-cols-1 md:grid-cols-3  gap-8 relative">
         {professionalServices.map((service, index) => (
           <motion.div
             key={index}
-            className="group relative"
+            className={`group relative ${index === 3 && "md:col-start-2 "}`}
             variants={{
               hidden: { opacity: 0, y: 40 },
               visible: {
@@ -130,6 +131,9 @@ const ServicesSection = () => {
                   <LucideCloud size={28} className="text-accent-dark" />
                 )}
                 {index === 2 && (
+                  <LucideMonitorCheck size={28} className="text-accent-dark" />
+                )}
+                {index === 3 && (
                   <LucideServer size={28} className="text-accent-dark" />
                 )}
               </motion.div>

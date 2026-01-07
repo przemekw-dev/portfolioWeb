@@ -15,7 +15,7 @@ const funnelDisplay = Inter({
 // });
 
 export const metadata: Metadata = {
-  title: "Przemek's Portfolio",
+  title: "React Software Engineer",
   description: "Mobile & Website development with scalable cloud backend.",
 };
 
