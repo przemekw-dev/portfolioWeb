@@ -3,10 +3,12 @@
 import { useScroll, useTransform, motion } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
-import { TbBrandReactNative, TbCloudCode } from "react-icons/tb";
+import { TbBrandKotlin, TbBrandReactNative, TbCloudCode } from "react-icons/tb";
 import { ProjectsType } from "types/home";
 import { RiNextjsFill } from "react-icons/ri";
 import { FiCpu } from "react-icons/fi";
+import { FaReact, FaRust } from "react-icons/fa";
+import { SiTauri } from "react-icons/si";
 // import { FaAws } from "react-icons/fa";
 
 export const ProjectSection = ({
@@ -31,13 +33,21 @@ export const ProjectSection = ({
   const icon = (iconName: string) => {
     switch (iconName) {
       case "TbBrandReactNative":
-        return <TbBrandReactNative size={28} className="text-gray-600" />; // Slightly smaller icons
+        return <TbBrandReactNative size={34} className="text-gray-600" />; // Slightly smaller icons
       case "RiNextjsFill":
-        return <RiNextjsFill size={28} className="text-gray-600" />;
+        return <RiNextjsFill size={34} className="text-gray-600" />;
       case "FiCpu":
-        return <FiCpu size={28} className="text-gray-600" />;
+        return <FiCpu size={34} className="text-gray-600" />;
       case "FaAws":
-        return <TbCloudCode size={28} className="text-gray-600" />;
+        return <TbCloudCode size={34} className="text-gray-600" />;
+      case "FaReact":
+        return <FaReact size={34} />;
+      case "FaTauri":
+        return <SiTauri size={34} />;
+      case "FaRust":
+        return <FaRust size={34} />;
+      case "FaKotlin":
+        return <TbBrandKotlin size={34} />;
       default:
         return <div className="w-7 h-7 bg-gray-200 rounded" />;
     }
@@ -69,14 +79,14 @@ export const ProjectSection = ({
               loop
               muted
               playsInline
-              className="absolute inset-0 w-full h-full object-cover rounded-xl"
+              className="absolute inset-0 w-full h-full object-contain rounded-2xl"
             />
           ) : (
             <Image
               src={project.content.image}
               alt={project.title}
               fill
-              className="object-cover rounded-xl"
+              className="object-contain rounded-xl"
               priority={index < 2} // Only prioritize first few images
             />
           )}
@@ -120,13 +130,13 @@ export const ProjectSection = ({
                   key={index}
                   className="w-full flex items-center gap-2 my-1 md:my-2" // Tighter spacing
                 >
-                  <div className="w-10 h-10 flex items-center justify-center rounded-md bg-accent/20">
+                  <div className="w-14 h-14 flex items-center justify-center rounded-md bg-accent/20 shadow-sm shadow-accent-dark/60">
                     {" "}
                     {/* Smaller icon container */}
                     {feature.icon && icon(feature.icon)}
                   </div>
                   <div className="flex flex-col flex-1">
-                    <p className="text-xs md:text-sm text-subtitle font-medium">
+                    <p className="text-xs md:text-sm tracking-normal text-subtitle font-semibold">
                       {" "}
                       {/* Smaller text */}
                       {feature.tech}
@@ -148,7 +158,7 @@ export const ProjectSection = ({
             {project.stack?.map((stack: string, i: number) => (
               <span
                 key={i}
-                className="text-xs font-medium bg-accent/10 text-accent-dark px-3 py-1.5 rounded-full" // Smaller tags
+                className="text-xs font-medium tracking-wide bg-accent/16 text-accent-dark px-3 py-1.5 rounded-full" // Smaller tags
               >
                 {stack}
               </span>

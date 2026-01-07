@@ -1,5 +1,7 @@
 import { ProjectsType, ServiceTech } from "types/home";
-import AccessControlSystem from "../../public/assets/AccessControlSys.png";
+// import AccessControlSystem from "../../public/assets/AccessControlSys.png";
+import SimpleLinkConnect from "../../public/assets/SimpleLinkConnect.png";
+import MantaTrace from "../../public/assets/MantaTrace.png";
 import AIAgent from "../../public/assets/AIAgentCalls.png";
 
 export const services: ServiceTech[] = [
@@ -30,6 +32,12 @@ export const services: ServiceTech[] = [
     ],
   },
   {
+    title: "Desktop App Development",
+    description:
+      "Cross-platform desktop app development with React frontend and Rust for native backend to support MacOS, Windows and Linux (Ubuntu, Debian).",
+    stack: ["React.js", "Tauri", "Rust", "Java"],
+  },
+  {
     title: "Full-Stack Engineering",
     description:
       "Frontend, backend, and cloud infrastructure for web and mobile apps. Including AI, payment, voice calls integration",
@@ -45,34 +53,71 @@ export const services: ServiceTech[] = [
 ];
 
 export const projects: ProjectsType[] = [
+  // {
+  //   title: "Access Control System",
+  //   description:
+  //     "Cloud-based physical access management system. Integrated three components for pass management, retrieval and verification via UWB/BLE and ECDSA.",
+  //   stack: [
+  //     "Next.js",
+  //     "React-Native",
+  //     "AWS Services",
+  //     "UWB/BLE",
+  //     "ECDSA Encryption",
+  //   ],
+  //   features: [
+  //     {
+  //       icon: "FaAws",
+  //       tech: "Cloud Backend",
+  //       description:
+  //         "Centralised AWS-Based Backend for pass creation, updates and entry logs.",
+  //     },
+  //     {
+  //       icon: "TbBrandReactNative",
+  //       tech: "Mobile App",
+  //       description: "Mobile app for pass retrieval and physical entry",
+  //     },
+  //     {
+  //       icon: "RiNextjsFill",
+  //       tech: "Dashboard",
+  //       description:
+  //         "Admin dashboard for pass management, access logs and user management.",
+  //     },
+  //     // {
+  //     //   icon: "FiCpu",
+  //     //   tech: "Access Point",
+  //     //   description:
+  //     //     "Embedded board that verifies user's passes and performs close proximity checks.",
+  //     // },
+  //   ],
+  //   content: {
+  //     image: AccessControlSystem,
+  //     video: "",
+  //   },
+  //   href: "/projects/access-control-system",
+  // },
   {
-    title: "Access Control System",
+    title: "Manta Trace Packet Sniffer",
     description:
-      "Cloud-based physical access management system. Integrated three components for pass management, retrieval and verification via UWB/BLE and ECDSA.",
-    stack: [
-      "Next.js",
-      "React-Native",
-      "AWS Services",
-      "UWB/BLE",
-      "ECDSA Encryption",
-    ],
+      "A desktop application developed to support software engineers and developers in analyzing Ultra-Wide Band and Bluetooth Low Energy data from peripherals in close proximity. Compliant with FiRa 2.0, supports multiple live UWB and BLE sessions with advanced filters and configuration for all captures.",
+    stack: ["Tauri", "React.js", "Rust", "TypeScript (ES6+)", "AWS Services"],
     features: [
       {
+        icon: "FaReact",
+        tech: "React",
+        description:
+          "Intuitive UI built with React.js, TailwindCSS, TypeScript, ContextAPI for state management.",
+      },
+      {
+        icon: "FaRust",
+        tech: "Rust Backend",
+        description:
+          "The application's local backend was built with Rust with tauri framework.",
+      },
+      {
         icon: "FaAws",
-        tech: "Cloud Backend",
+        tech: "AWS Serverless Backend",
         description:
-          "Centralised AWS-Based Backend for pass creation, updates and entry logs.",
-      },
-      {
-        icon: "TbBrandReactNative",
-        tech: "Mobile App",
-        description: "Mobile app for pass retrieval and physical entry",
-      },
-      {
-        icon: "RiNextjsFill",
-        tech: "Dashboard",
-        description:
-          "Admin dashboard for pass management, access logs and user management.",
+          "AWS Cloud - DynamoDB for user data storage, Amplify for deployment, Cognito for authentication & authorization, GraphQL for data manupilation. ",
       },
       // {
       //   icon: "FiCpu",
@@ -82,10 +127,41 @@ export const projects: ProjectsType[] = [
       // },
     ],
     content: {
-      image: AccessControlSystem,
+      image: MantaTrace,
       video: "",
     },
-    href: "/projects/access-control-system",
+    href: "/projects/manta-trace",
+  },
+  {
+    title: "Simple Link Connect",
+    description:
+      "Supported the development and release of a React Native mobile app to streamline development processes of engineers and developers. The app allows scanning, connecting uploading firmware updates to peripherals and devices using mobile's native Bluetooth APIs. ",
+    stack: ["React Native", "Kotlin", "TypeScript (ES6+)", "Google Play Store"],
+    features: [
+      {
+        icon: "TbBrandReactNative",
+        tech: "React Native",
+        description:
+          "Intuitive UI built with React Native, TypeScript (ES6+) and Redux for state management.",
+      },
+      {
+        icon: "FaKotlin",
+        tech: "Kotlin Native Modules",
+        description:
+          "Application's native modules were developed with Kotlin to bridge native APIs to React Native.",
+      },
+      // {
+      //   icon: "FiCpu",
+      //   tech: "Access Point",
+      //   description:
+      //     "Embedded board that verifies user's passes and performs close proximity checks.",
+      // },
+    ],
+    content: {
+      image: SimpleLinkConnect,
+      video: "",
+    },
+    href: "/projects/simplelink-connect",
   },
   {
     title: "Real-Time Tracking Dashboard",
