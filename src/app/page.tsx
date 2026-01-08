@@ -83,9 +83,9 @@ const Home = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-text mt-4 mb-6">
               Featured Projects
             </h2>
-            <p className="text-lg text-subtitle/80 max-w-2xl mx-auto">
+            {/* <p className="text-lg text-subtitle/80 max-w-2xl mx-auto">
               Code, design, and infrastructure contributions across platforms
-            </p>
+            </p> */}
           </div>
 
           <div className="space-y-28 md:space-y-16  h-full">

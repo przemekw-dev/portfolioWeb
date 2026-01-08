@@ -15,7 +15,7 @@ const Header = ({
 }) => {
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
-  const headerHeight = useTransform(scrollY, [0, 100], [96, 72]);
+  const headerHeight = useTransform(scrollY, [0, 72], [72, 56]);
   const opacity = useTransform(scrollY, [0, 50], [1, 0.9]);
 
   useEffect(() => {
@@ -26,8 +26,10 @@ const Header = ({
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 w-full z-20 transition-colors duration-300 ${
-        scrolled ? "bg-slate-900/80" : "bg-slate-900/20"
+      className={`fixed top-0 left-0 w-full z-20 transition-colors bg-gradient-to-b from-slate-600/50 via-slate-700-70 to-slate-600/60 duration-300 ${
+        scrolled
+          ? "from-slate-800/80 via-slate-900/75 to-slate-800/70"
+          : "from-slate-700/75 via-slate-600/75 to-slate-700/65"
       }`}
       style={{ height: headerHeight, opacity }}
     >
@@ -69,11 +71,11 @@ const Header = ({
 
           <motion.div
             whileHover={{ y: -2, cursor: "pointer" }}
-            whileTap={{ scale: 0.95 }}
+            whileTap={{ scale: 0.9 }}
             className="group"
           >
             <Button
-              className="relative overflow-hidden group group-hover:cursor-pointer bg-transparent border-1 border-surface"
+              className="relative overflow-hidden tracking-tight font-medium bg-blue-300/30 max-h-10 max-w-40 group group-hover:cursor-pointer border-1 border-slate-400 shadow-md shadow-slate-500"
               onClick={() => {
                 contactRef.current?.scrollIntoView({
                   block: "start",
@@ -83,10 +85,10 @@ const Header = ({
               }}
             >
               <span className="relative z-10 flex items-center gap-2">
-                <span className="text-gray-50">Contact Me</span>
+                <span className="text-gray-50 text-sm">Contact Me</span>
                 <svg
                   width="16"
-                  height="16"
+                  height="12"
                   viewBox="0 0 24 24"
                   fill="none"
                   className="transition-transform group-hover:translate-x-1"

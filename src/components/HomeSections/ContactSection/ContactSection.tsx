@@ -156,7 +156,7 @@ const ContactSection = () => {
                   id="message"
                   {...register("message", { required: true })}
                   rows={5}
-                  className="w-full px-4 py-3 rounded-lg bg-background border border-border/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
+                  className="w-full px-4 py-3 rounded-lg min-h-44 max-h-102 bg-background border border-border/50 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
                   placeholder="Type your message here..."
                 />
                 {errors.message && (

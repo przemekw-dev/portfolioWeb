@@ -10,7 +10,7 @@ const HeroHeader = ({
   servicesRef: React.RefObject<HTMLDivElement | null>;
 }) => {
   return (
-    <section className="relative flex flex-col items-center justify-center w-full px-6 pt-46 pb-24 text-center">
+    <section className="relative flex flex-col items-center justify-center w-full px-6 pt-36 pb-24 text-center">
       {/* <TechVideoBackground /> */}
 
       {/* Decorative elements (optional) */}
