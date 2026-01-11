@@ -46,7 +46,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       className="relative isolate overflow-hidden rounded-2xl border border-border/20 bg-surface/80 backdrop-blur-lg shadow-2xl"
       style={{ y, opacity }}
     >
-      {/* <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-[size:60px_60px] opacity-5" /> */}
+      {/* <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-size-[60px_60px] opacity-5" /> */}
 
       <div className="relative z-10 p-8 h-full flex flex-col">
         <div className="flex items-center gap-4 mb-6">
@@ -62,7 +62,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           <h3 className="text-2xl font-bold text-text">
             {typeof service === "string" ? service : service.title}
             <motion.span
-              className="block h-0.5 bg-gradient-to-r from-accent to-accent-dark mt-1"
+              className="block h-0.5 bg-linear-to-r from-accent to-accent-dark mt-1"
               initial={{ width: 0 }}
               whileInView={{ width: "100%" }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -122,8 +122,8 @@ const OtherTechnologies = () => {
       {/* <TechVideoBackground /> */}
 
       {/* <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-accent/50 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-accent/50 to-transparent" />
       </div> */}
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
@@ -138,7 +138,7 @@ const OtherTechnologies = () => {
             Technology Stack
           </span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-white">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent-dark to-accent">
+            <span className="bg-clip-text text-transparent bg-linear-to-r from-accent-dark to-accent">
               Additional Services
             </span>
           </h2>

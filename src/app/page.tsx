@@ -16,6 +16,15 @@ import OtherTechnologies from "@components/HomeSections/OtherTechnologies/OtherT
 import ContactSection from "@components/HomeSections/ContactSection/ContactSection";
 import Header from "@components/ui/Header";
 
+import {
+  GlassCard,
+  SkillCard,
+  ProjectCard,
+  FloatingSphere,
+  BubbleBackground,
+  CTAButton,
+} from "@components/FrutigerComponents";
+
 const professionalProjects = projects;
 
 const Home = () => {
@@ -28,9 +37,10 @@ const Home = () => {
 
   return (
     <>
+      <BubbleBackground />
       <Header contactRef={contactRef} />
 
-      <article className="flex flex-col mx-auto h-full max-w-7xl xl:mt-12">
+      <article className="flex flex-col mx-auto h-full max-w-7xl xl:mt-12 bg-transparent">
         {/* Hero Section */}
         <motion.section
           className="container mx-auto h-full"
@@ -45,7 +55,7 @@ const Home = () => {
           }}
         >
           <div className="flex flex-col items-center justify-between gap-8">
-            <div className="flex flex-col text-center order-2 xl:order-none justify-center items-center">
+            <div className="flex flex-col text-center order-2 xl:order-0 justify-center items-center">
               <HeroHeader servicesRef={servicesRef} />
             </div>
           </div>
@@ -122,7 +132,7 @@ const Home = () => {
           className="flex flex-col  justify-center gap-8  mx-auto"
           ref={contactRef}
         >
-          {/* <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent-dark to-accent text-center text-5xl  leading-loose tracking-tight font-semibold">
+          {/* <span className="bg-clip-text text-transparent bg-linear-to-r from-accent-dark to-accent text-center text-5xl  leading-loose tracking-tight font-semibold">
           Want to hire me?
           </span> */}
 

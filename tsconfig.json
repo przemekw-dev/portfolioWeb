@@ -1,12 +1,9 @@
 {
   "compilerOptions": {
+    "ignoreDeprecations": "6.0",
     "baseUrl": "src/",
     "target": "ES2017",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -24,27 +21,13 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "@components/*": [
-        "components/*"
-      ],
-      "@context/*": [
-        "context/*"
-      ],
-      "@utils/*": [
-        "utils/*"
-      ],
-      "@icons/*": [
-        "icons/*"
-      ],
-      "@graphql/*": [
-        "graphql/*"
-      ],
-      "@public/*": [
-        "../public/*"
-      ]
+      "@/*": ["./src/*"],
+      "@components/*": ["components/*"],
+      "@context/*": ["context/*"],
+      "@utils/*": ["utils/*"],
+      "@icons/*": ["icons/*"],
+      "@graphql/*": ["graphql/*"],
+      "@public/*": ["../public/*"]
     }
   },
   "include": [
@@ -52,9 +35,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
+    ".next/dev/types/**/*.ts",
+    "src/components/FrutigerComponents.jsx"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

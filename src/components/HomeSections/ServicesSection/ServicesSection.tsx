@@ -178,7 +178,7 @@ const ServicesSection = () => {
                 initial={{ scale: 0.95 }}
                 whileHover={{ scale: 1 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-accent-dark/5" />
+                <div className="absolute inset-0 bg-linear-to-br from-accent/5 to-accent-dark/5" />
                 <div className="absolute -bottom-10 -right-10 w-24 h-24 rounded-full bg-accent/10 blur-xl" />
               </motion.div>
 
@@ -197,7 +197,7 @@ const ServicesSection = () => {
 
       {/* Connecting Animation */}
       <motion.div
-        className="hidden md:block absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent top-1/2"
+        className="hidden md:block absolute left-0 right-0 h-px bg-linear-to-r from-transparent via-border to-transparent top-1/2"
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
         transition={{ duration: 1.5, delay: 0.8 }}

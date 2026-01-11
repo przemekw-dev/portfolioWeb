@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff; /* white */
+  /* --background: #ffffff; white */
   --foreground: #1e293b;
 }
 
@@ -28,10 +28,155 @@
   --color-warning: #f59e0b;
 
   --text-tiny: 0.75rem;
+
+  /* Frutiger Aero Colour pallete */
+  --color-primary-blue: #2a9df4;
+  --color-secondary-blue: #00b4d8;
+  --color-accent-green: #00d4aa;
+  --color-glass-bg: rgba(255, 255, 255, 0.15);
+  --color-glass-border: rgba(255, 255, 255, 0.2);
+  --color-glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  --text-light: #f0f7ff;
+  --text-dark: #1a3b5d;
+  --gradient-bg: linear-gradient(135deg, #1a2a6c, #2a9df4, #00d4aa);
+
+  /* Additional theme extensions for Frutiger Aero */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-slow: float 8s ease-in-out infinite;
+  --animate-float-fast: float 4s ease-in-out infinite;
+
+  --radius-glass: 20px;
+  --radius-glass-small: 15px;
+  --radius-glass-large: 30px;
+}
+
+/* Custom animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
 }
 
 body {
-  background: var(--background);
+  /* background: var(--background); */
+  /* background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><defs><radialGradient id="grad" cx="50%" cy="50%"><stop offset="0%" stop-color="rgba(255,255,255,0.05)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient></defs><rect width="100" height="100" fill="url(%23grad)"/></svg>'); */
   font-family: var(--font-exo_2);
+  color: var(--text-light);
   /* font-family: Arial, Helvetica, sans-serif; */
+  background: var(--gradient-bg);
+}
+
+.glass-card {
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--color-glass-border);
+  box-shadow: var(--color-glass-shadow);
+  border-radius: var(--radius-glass);
+}
+
+.floating-element {
+  animation: float 6s ease-in-out infinite;
+  width: 300px;
+  height: 300px;
+  background: var(--color-glass-bg);
+  border-radius: 50%;
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.floating-element::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 212, 170, 0.3) 0%,
+    rgba(0, 212, 170, 0) 70%
+  );
+  top: -30px;
+  left: -30px;
+}
+
+.floating-element::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(
+    circle,
+    rgba(42, 157, 244, 0.3) 0%,
+    rgba(42, 157, 244, 0) 70%
+  );
+  bottom: -20px;
+  right: -20px;
+}
+/* .glass-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: linear-gradient(
+    to right,
+    var(--primary-blue),
+    var(--accent-green)
+  );
+  border-radius: var(--radius-glass) 0 0;
+} */
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY((-10px));
+  box-shadow: 0 15px 35px rgba(31, 38, 135, 0.25);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--text-light), var(--accent-green));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--primary-blue), var(--accent-green));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(var(--accent-green), var(--primary-blue));
+}
+
+/* Bubble decorations */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  z-index: -1;
+  animation: var(--animate-float-slow);
 }

@@ -38,7 +38,7 @@ export function EmailConfirmationAlert({
         >
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden w-80">
             <div className="p-4 flex items-start">
-              <div className="flex-shrink-0">
+              <div className="shrink-0">
                 <CheckCircle2 className="h-6 w-6 text-green-500" />
               </div>
               <div className="ml-3 flex-1">

@@ -90,7 +90,7 @@ export const ProjectSection = ({
               priority={index < 2} // Only prioritize first few images
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent rounded-xl" />{" "}
+          <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent rounded-xl" />{" "}
           {/* Lighter gradient */}
         </motion.div>
 

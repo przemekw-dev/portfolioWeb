@@ -26,15 +26,15 @@ const Header = ({
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 w-full z-20 transition-colors bg-gradient-to-b from-slate-600/50 via-slate-700-70 to-slate-600/60 duration-300 ${
+      className={`fixed top-0 left-0 w-full z-20 transition-colors  duration-300 backdrop-blur-[10px] border-b-1 border-b-glass-border bg-accent/20 ${
         scrolled
-          ? "from-slate-800/80 via-slate-900/75 to-slate-800/70"
-          : "from-slate-700/75 via-slate-600/75 to-slate-700/65"
+        // ? "from-slate-800/80 via-slate-900/75 to-slate-800/70"
+        // : "from-slate-700/75 via-slate-600/75 to-slate-700/65"
       }`}
       style={{ height: headerHeight, opacity }}
     >
       {/* Glowing top border */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-400/70 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-blue-400/70 to-transparent" />
 
       <div className="container mx-auto px-6 h-full flex justify-between items-center">
         {/* Holographic Logo */}
@@ -75,7 +75,7 @@ const Header = ({
             className="group"
           >
             <Button
-              className="relative overflow-hidden tracking-tight font-medium bg-blue-300/30 max-h-10 max-w-40 group group-hover:cursor-pointer border-1 border-slate-400 shadow-md shadow-slate-500"
+              className="relative overflow-hidden tracking-tight font-medium bg-blue-300/30 max-h-10 max-w-40 group group-hover:cursor-pointer border border-slate-400 shadow-md shadow-slate-500"
               onClick={() => {
                 contactRef.current?.scrollIntoView({
                   block: "start",

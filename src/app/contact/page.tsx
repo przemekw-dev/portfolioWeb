@@ -60,7 +60,7 @@ const page = () => {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-[30px]">
           {/* form */}
-          <div className="order-2 xl:order-none">
+          <div className="order-2 xl:order-0">
             <h3 className="text-4xl text-accent pb-4">Let$#39;s connect!</h3>
             <p className="text-white/60">
               I$#39;m open to employment opportunities, collaborations, and new
@@ -107,7 +107,7 @@ const page = () => {
           </div>
 
           {/* info */}
-          <div className="flex-1 flex items-center order-1 xl:order-none mb-8 xl:mb-0">
+          <div className="flex-1 flex items-center order-1 xl:order-0 mb-8 xl:mb-0">
             <ul className="flex flex-col gap-10">
               {info.map((item, index) => {
                 return (

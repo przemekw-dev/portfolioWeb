@@ -51,7 +51,7 @@ export default function TechVideoBackground() {
         {/* Fallback format */}
       </video>
       <div
-        className=" bg-gradient-to-b from-surface/90 via-surface/70 to-surface/90"
+        className=" bg-linear-to-b from-surface/90 via-surface/70 to-surface/90"
         style={
           {
             //   width: "100vw",

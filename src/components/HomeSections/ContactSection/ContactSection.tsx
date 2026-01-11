@@ -81,7 +81,7 @@ const ContactSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold leading-snug bg-clip-text text-transparent bg-gradient-to-r from-accent-dark to-accent mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold leading-snug bg-clip-text text-transparent bg-linear-to-r from-accent-dark to-accent mb-4">
             Get in touch now
           </h2>
           <p className="text-lg text-subtitle/80 max-w-2xl mx-auto">
@@ -171,7 +171,7 @@ const ContactSection = () => {
                 whileTap={{ scale: 0.98 }}
                 type="submit"
                 disabled={isSending}
-                className={`w-full bg-gradient-to-r from-accent-dark to-accent text-white font-medium py-3 px-6 rounded-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-accent/20 transition-all ${
+                className={`w-full bg-linear-to-r from-accent-dark to-accent text-white font-medium py-3 px-6 rounded-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-accent/20 transition-all ${
                   isSending ? "cursor-not-allowed opacity-90" : ""
                 }`}
               >

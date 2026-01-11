@@ -56,7 +56,7 @@ const Services = () => {
               >
                 {/* top */}
                 <div className="w-full flex justify-between items-center">
-                  <div className="text-5xl font-thin  border-b-[2px] border-b-transparent pb-1  group-hover:border-b-[#00ff99] group-hover:border-b-[2px] transition-all duration-500">
+                  <div className="text-5xl font-thin  border-b-2 border-b-transparent pb-1  group-hover:border-b-[#00ff99] group-hover:border-b-2 transition-all duration-500">
                     {services.num}
                   </div>
 
