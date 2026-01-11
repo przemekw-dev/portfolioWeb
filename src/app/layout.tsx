@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Exo_2, Montserrat } from "next/font/google";
 import "./globals.css";
 // import StairTransition from "../components/ui/StairTransition";
 
-const funnelDisplay = Inter({
-  variable: "--font-funnelDisplay",
+const exo_2 = Exo_2({
+  variable: "--font-exo_2",
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata: Metadata = {
   title: "React Software Engineer",
@@ -26,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${funnelDisplay.variable} antialiased `}>
+      <body className={`${exo_2.variable} antialiased `}>
         <main className="relative min-h-screen overflow-hidden bg-slate-50">
           {/* Infinite vertical background lines from bottom-right */}
           <div className="absolute inset-0 z-0 bg-[url('/assets/curve_long_background.svg')] bg-right  opacity-40 pointer-events-none" />

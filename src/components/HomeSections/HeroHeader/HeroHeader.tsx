@@ -60,7 +60,7 @@ const HeroHeader = ({
         </h1>
 
         {/* Description */}
-        <p className="max-w-2xl mx-auto text-subtitle text-lg md:text-xl mb-10 leading-relaxed">
+        <p className="max-w-2xl mx-auto text-subtitle text-lg md:text-xl mb-10 leading-relaxed ">
           I build full-stack applications across frontend, backend, and cloud
           infrastructure in agile teams.
         </p>
